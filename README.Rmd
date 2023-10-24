@@ -151,7 +151,7 @@ Step 3: extracting peak features
   
   #'Extracting differential peaks
   #'data has to be organized like NR_XX_X, WT_XX_X, NR_DMSO_X
-  Control<-'DMSO'
+  Control<-'MeOH'
   peaks<-LigandFeatureID(peaks.raw,'neg',Control)#This is the function extracting differential peaks compared to control
 ```
 Step 4: identifying primary isotopic peaks, and remove redudant isotopic peaks
@@ -164,7 +164,7 @@ Step 4: identifying primary isotopic peaks, and remove redudant isotopic peaks
 Step 5: loading database, and do initial searching with exact mass
 ```{r, message=FALSE, warning=FALSE}
   setwd(path)
-  Database<-read_excel("Tox21Cast_CFMID.xlsx")
+  Database<-read_excel("TSCA_TOX21_HMDB_CFMID.xlsx")#This is a combined database of TSCA, Tox21 and HMDB
   peaks.iso$mz<-peaks.iso$mz*(1+0*10^(-6))##simple mass calibration
   Library<-InitialSearch(peaks.iso,3,polarity,Database)#2ppm mass tolerance
   
@@ -190,7 +190,7 @@ Step 5: loading database, and do initial searching with exact mass
   Library<-Library[-indexsave,]}
   
   #'writing the initial searching
-  write.table(Library,file='TR_neg.csv',sep=',',row.names = FALSE)
+  write.table(Library,file='RXR_neg.csv',sep=',',row.names = FALSE)
 ```
 Step 6: extracting fragments and isotopic peaks
 ```{r, message=FALSE, warning=FALSE}
