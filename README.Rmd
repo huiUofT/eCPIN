@@ -152,7 +152,7 @@ Step 3: extracting peak features
   #'Extracting differential peaks
   #'data has to be organized like NR_XX_X, WT_XX_X, NR_DMSO_X
   Control<-'MeOH'
-  peaks<-LigandFeatureID(peaks.raw,'neg',Control)#This is the function extracting differential peaks compared to control
+  peaks<-LigandFeatureID(peaks.raw,'neg',Control)#This is the function extracting differential peaks compared to controL
 ```
 Step 4: identifying primary isotopic peaks, and remove redudant isotopic peaks
 ```{r, message=FALSE, warning=FALSE}
